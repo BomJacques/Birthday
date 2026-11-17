@@ -95,6 +95,17 @@
     });
     host.appendChild(row);
   }
+
+  // photo scraps cut from the supplied image
+  for (var q = 0; q < 22; q++) {
+    var ph = document.createElement('div'); ph.className = 'p';
+    var pw = 90 + r() * 180, phh = 90 + r() * 180, z = 1.2 + r() * 2.2;
+    ph.style.cssText = 'left:' + (r() * W - 40) + 'px;top:' + (r() * H - 40) + 'px;width:' + pw + 'px;height:' + phh + 'px;' +
+      'background-image:url(photo.webp);background-size:' + (pw * z) + 'px auto;background-position:' + (r() * 100) + '% ' + (r() * 100) + '%;' +
+      'transform:rotate(' + (r() * 80 - 40) + 'deg);clip-path:' + poly() + ';' +
+      'filter:' + pick(['contrast(1.6) saturate(2.5)','grayscale(1) contrast(1.8)','hue-rotate(' + Math.floor(r()*360) + 'deg) saturate(3)','none','sepia(1) contrast(1.4)']) + ';';
+    host.appendChild(ph);
+  }
   var names = ['ANTHONY','KIEDIS','ANTHONY KIEDIS','ANTHONY'];
   for (var j = 0; j < 9; j++) {
     ransom(pick(names), r() * W * .6 - 40, r() * H, 28 + r() * 40, r() * 60 - 30);
